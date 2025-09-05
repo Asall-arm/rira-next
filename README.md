@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 💵 Dollar to Toman Converter
 
-## Getting Started
+یک پروژه ساده با Next.js 15 برای تبدیل مقدار دلار به تومان و برعکس، با گرفتن نرخ لحظه‌ای از API عمومی صرافی Ramzinex.
 
-First, run the development server:
+---
 
-```bash
+## 🚀 ویژگی‌ها
+
+- گرفتن نرخ لحظه‌ای دلار به تومان از API عمومی
+- تبدیل دلار به تومان و بالعکس
+- نمایش نرخ با فرمت جداکننده هزارگان (comma-separated) و به صورت ممیزی (point-seprated) (, و .)
+- طراحی ساده و شیک با CSS Module
+
+---
+
+## 📡 منبع API
+اطلاعات نرخ لحظه‌ای از این API دریافت می‌شود:  
+[Ramzinex Public API](https://publicapi.ramzinex.com/exchange/api/v1.0/exchange/orderbooks/11/market_buy_price)
+
+> 💡 توجه:
+ از آن‌جایی که قیمت تتر (USDT) همواره برابر با قیمت دلار (USD) در بازار ایران در نظر گرفته می‌شود،  
+> برای دقت بیشتر و دسترسی پایدار به داده‌ها، نرخ تتر از API دریافت شده و به عنوان نرخ دلار استفاده شده است.
+
+---
+
+## 🛠️ تکنولوژی‌ها
+
+- [Next.js 15](https://nextjs.org/) (App Router)
+- React (useState, useEffect)
+- CSS Modules برای استایل‌دهی
+- Fetch API برای گرفتن داده‌ها
+
+---
+
+## 🛠️ پیش‌نیازها
+برای اجرای این پروژه به موارد زیر نیاز دارید:
+- نصب [Node.js](https://nodejs.org/) (ترجیحاً نسخه LTS)
+- نصب [Git](https://git-scm.com/) برای کلون کردن پروژه (اختیاری)
+
+---
+
+## 🚀 روش اجرا
+
+### 1. کلون کردن پروژه (یا دانلود)
+اگر Git دارید، می‌توانید پروژه را کلون کنید:
+```bash / terminal
+git clone <repository-link>
+
+cd <project-folder-name>
+
+npm install
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+http://localhost:3000
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+.
+├── app/
+│   ├── api/
+│   │   └── rate/route.js   → دریافت نرخ لحظه‌ای دلار از API
+│   ├── page.js             → کامپوننت اصلی برنامه
+│   └── styles.module.css   → استایل‌ها
+├── package.json
+├── README.md
